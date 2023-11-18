@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BookStock</string>
+    <string name="email">user@correo.com</string>
+    <string name="pass">password</string>
+    <string name="confirmPassword">Confirmar password</string>
+    <string name="name">Nombre(s)</string>
+    <string name="lastname">Apellido(s)</string>
+    <string name="userName">Usuario</string>
+    <string name="title">Título</string>
+    <string name="author">Autor</string>
+    <string name="year">Año</string>
+    <string name="price">Precio</string>
+    <string name="btnConsultar">Consultar</string>
+    <string name="btnAgregar">Agregar</string>
+    <string name="btnCrearCuenta">Crear cuenta</string>
+    <string name="str_create_user"><u>Crear cuenta</u></string>
+    <string name="noText"></string>
+    <string name="Welcome">Bienvenido</string>
+    <string name="newUser">Nuevo Usuario</string>
+</resources>

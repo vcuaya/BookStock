@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bgSplashScreen">#4D527D</color>
+    <color name="hint">#b9c9c5</color>
+    <color name="button">#172178</color>
+</resources>
