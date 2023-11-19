@@ -1,23 +1,18 @@
 package com.hivebraintech.bookstock
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.DatePicker
 import android.widget.EditText
-import android.widget.NumberPicker
 import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
-import com.example.bookstock.ProductsAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import java.util.Calendar
+import java.text.NumberFormat
 
 class HomeActivity : AppCompatActivity() {
     // Variable de autenticación de Firebase
@@ -69,10 +64,13 @@ class HomeActivity : AppCompatActivity() {
 
     private fun gedUserByUid(uid: String, callback: (String, String) -> Unit) {
         Log.d("Home", "El UID es: $uid")
+
+        // Obtener colección de Firestore
         val usersCollection = FirebaseFirestore.getInstance().collection("users")
 
         usersCollection.whereEqualTo("uid", uid).get().addOnSuccessListener { querySnapshot ->
             if (!querySnapshot.isEmpty) {
+                // Valores obtenidos de Firebase
                 val document = querySnapshot.documents[0]
                 val firstName = document.getString("firstName") ?: ""
                 val surname = document.getString("surname") ?: ""
@@ -100,12 +98,14 @@ class HomeActivity : AppCompatActivity() {
         val edtAuthor: EditText = findViewById(R.id.edtAutorHome)
         val edtYear: EditText = findViewById(R.id.edtAnioHome)
         val edtPrice: EditText = findViewById(R.id.edtPrecioHome)
+        val edtUrl: EditText = findViewById(R.id.edtUrlHome)
 
         // Obtener el texto de las entradas
         var title: String = edtTitle.text.toString()
         var author: String = edtAuthor.text.toString()
         var yearString: String = edtYear.text.toString()
         var priceString: String = edtPrice.text.toString()
+        var url: String = edtUrl.text.toString()
 
         var year: Int = 0
         var price: Double = 0.0
@@ -142,7 +142,11 @@ class HomeActivity : AppCompatActivity() {
             price = priceString.toDouble()
 
             var data = hashMapOf(
-                "title" to title, "author" to author, "year" to year, "price" to price
+                "title" to title,
+                "author" to author,
+                "year" to year,
+                "price" to price,
+                "url" to url
             )
             db.collection("products").add(data).addOnSuccessListener { documentReference ->
                 Log.d(
@@ -157,12 +161,26 @@ class HomeActivity : AppCompatActivity() {
                 val year: TextView = findViewById(R.id.txvAnioAgregadoHome)
                 val price: TextView = findViewById(R.id.txvPrecioAgregadoHome)
 
+                // Variable para formato de moneda
+                val format: NumberFormat = NumberFormat.getCurrencyInstance()
+
                 // Actualizar datos del libro recién agregado
-                id.text = "Producto agregado con ID: ${documentReference.id}"
+                id.text = "Producto agregado correctamente\n\nID: ${documentReference.id}"
                 title.text = data["title"].toString()
                 author.text = data["author"].toString()
                 year.text = data["year"].toString()
-                price.text = data["price"].toString()
+                price.text = format.format(data["price"]).toString()
+
+                // Borrar el formulario
+                edtTitle.text.clear()
+                edtAuthor.text.clear()
+                edtYear.text.clear()
+                edtPrice.text.clear()
+                edtUrl.text.clear()
+
+                // Focus al inicio del formulario
+                edtTitle.requestFocus()
+
             }.addOnFailureListener { e ->
                 Log.e("HomeActivity", "No se pudo agregar el registro. Error: $e")
 

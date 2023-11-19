@@ -10,6 +10,7 @@
     <string name="author">Autor</string>
     <string name="year">Año</string>
     <string name="price">Precio</string>
+    <string name="url">URL</string>
     <string name="btnConsultar">Consultar</string>
     <string name="btnAgregar">Agregar</string>
     <string name="btnCrearCuenta">Crear cuenta</string>

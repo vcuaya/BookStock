@@ -4,5 +4,19 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bgSplashScreen">#4D527D</color>
     <color name="hint">#b9c9c5</color>
-    <color name="button">#172178</color>
+    <color name="lightButtonColor">#172178</color>
+    <color name="nightButtonColor">#4444A7</color>
+
+    <!-- Título CardView -->
+    <color name="titleColor">#333333</color>
+
+    <!-- Autor CardView -->
+    <color name="authorColor">#666666</color>
+
+    <!-- Año CardView -->
+    <color name="yearColor">#999999</color>
+
+    <!-- Precio CardView -->
+    <color name="priceColor">#FF5733</color>
+
 </resources>

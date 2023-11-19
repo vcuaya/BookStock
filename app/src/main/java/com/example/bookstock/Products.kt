@@ -5,5 +5,6 @@ data class Products(
     val author: String,
     val price: Double,
     val title: String,
+    val url: String,
     val year: Int
 )

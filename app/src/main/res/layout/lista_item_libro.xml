@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,36 +12,49 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Tu contenido existente -->
+        <ImageView
+            android:id="@+id/ivBookImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/default_book_image" />
+
         <TextView
             android:id="@+id/txvIdStock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cix1dDiwppiATWyfdQq1" />
+            android:text="ID del libro" />
 
         <TextView
             android:id="@+id/txvTitleStock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Título del libro" />
+            android:text="Título del libro"
+            android:textAlignment="center"
+            android:textColor="@color/titleColor"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/txvAuthorStock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre autor" />
+            android:text="Nombre autor"
+            android:textColor="@color/authorColor" />
 
         <TextView
             android:id="@+id/txvYearStock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2023" />
+            android:text="2023"
+            android:textColor="@color/yearColor" />
 
         <TextView
             android:id="@+id/txvPriceStock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123.45" />
+            android:text="123.45"
+            android:textColor="@color/priceColor" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
