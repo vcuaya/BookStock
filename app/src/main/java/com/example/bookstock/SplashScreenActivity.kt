@@ -1,4 +1,4 @@
-package com.example.bookstock
+package com.hivebraintech.bookstock
 
 import android.app.ActivityOptions
 import android.content.Intent
